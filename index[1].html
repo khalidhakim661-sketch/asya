@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Asya!</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffb6d5, #ffd9ec);
+    overflow: hidden;
+    color: #912a50;
+}
+#landing {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #ffb6d5ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    color: white;
+    padding: 20px;
+}
+#landing button {
+    padding: 15px 35px;
+    background: #ff6fa3;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 18px #ff8fbc;
+}
+#content {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 100, 150, 0.35);
+    animation: fadeIn 1.4s ease;
+}
+.slideshow {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 15px auto;
+    position: relative;
+}
+.slide {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    box-shadow: 0 0 18px #ff8fbc;
+}
+.slide.active { display: block; }
+h1 {
+    font-size: 32px;
+    color: #ff3e7f;
+    margin-top: 10px;
+}
+#typing {
+    white-space: pre-line;
+    font-size: 15px;
+    margin-top: 10px;
+    min-height: 120px;
+    color: #a53160;
+}
+#surprise {
+    display: none;
+    margin-top: 18px;
+    font-size: 17px;
+    animation: fadeIn 1s ease;
+}
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff6fa3;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 12px #ff9ec9;
+}
+#page2 {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd2e8, #ffe6f3);
+    top: 0;
+    left: 0;
+    padding: 25px;
+    overflow-y: auto;
+    animation: fadeIn 0.8s ease;
+}
+.surat-box {
+    max-width: 450px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: 0 10px 35px rgba(255,150,180,0.35);
+    color: #912a50;
+    line-height: 1.55;
+    font-size: 15px;
+}
+.heart {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: fall 5s linear infinite;
+    opacity: 0.8;
+}
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: pink;
+    border-radius: 50%;
+}
+.heart:before { top: -9px; left: 0; }
+.heart:after { left: -9px; top: 0; }
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(45deg); }
+    100% { transform: translateY(120vh) rotate(45deg); opacity: 0; }
+}
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="https://drive.google.com/uc?export=download&id=1XnrEYLwU1H9FfUMdJgJky7waFW4g3V4t" autoplay loop></audio>
+
+<div id="landing">
+    <h1>🌸 Ada Sesuatu Untuk Asya 🌸</h1>
+    <button onclick="start()">Buka</button>
+</div>
+
+<div id="content">
+    <div class="card">
+        <div class="slideshow">
+            <img src="foto1.jpeg" class="slide active">
+            <img src="foto2.jpeg" class="slide">
+            <img src="foto3.jpeg" class="slide">
+        </div>
+
+        <h1>Selamat Ulang Tahun Sayang 🎀</h1>
+        <div id="typing"></div>
+        <button onclick="showSurprise()">💗 Kejutan</button>
+        <div id="surprise">
+            Semoga kamu makin cantik, makin lucu,
+            makin bahagia dan makin sayang sama akuuu 💗✨
+        </div>
+        <button onclick="openPage2()">📄 Buka Halaman 2</button>
+    </div>
+</div>
+
+<div id="page2">
+    <div class="surat-box">
+        <h2 style="text-align:center; color:#ff3e7f; margin-bottom:15px;">
+            Surat Untuk Asya 💌
+        </h2>
+        <p>Sayang… Terima kasih sudah hadir dalam hidup aku.</p>
+        <p>Kamu itu rumah buat hati aku.</p>
+        <p>Di setiap tatapan kamu, aku merasa disayang.</p>
+        <p>Aku janji bakal terus jagain kamu.</p>
+        <p style="text-align:center; font-weight:600; margin-top:25px;">
+            Aku sayang banget sama kamu. 💗✨
+        </p>
+        <button onclick="closePage2()" style="width:100%; margin-top:25px;">
+            Kembali ke Halaman 1
+        </button>
+    </div>
+</div>
+
+<script>
+function start() {
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("content").style.display = "flex";
+    document.getElementById("bgm").play();
+    typeText();
+}
+let text = `Di hari spesial kamu ini,
+aku cuma pengen kamu tau:
+
+kamu adalah kebahagiaan aku.
+
+Terima kasih sudah hadir
+dalam hidupku.
+
+Aku sayang kamu. 💗`;
+let i = 0;
+function typeText() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 35);
+    }
+}
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}, 2500);
+function showSurprise() {
+    document.getElementById("surprise").style.display = "block";
+}
+function openPage2() {
+    document.getElementById("page2").style.display = "block";
+}
+function closePage2() {
+    document.getElementById("page2").style.display = "none";
+}
+for (let h = 0; h < 35; h++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
